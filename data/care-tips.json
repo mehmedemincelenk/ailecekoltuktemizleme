@@ -1,0 +1,148 @@
+{
+  "version": 1,
+  "language": "tr",
+  "title": "Koltuk bakımında kısa bilgiler",
+  "generalNotice": "Kumaşın bakım etiketini ve üretici talimatlarını her zaman öncelikli kabul edin. Bir ürünü önce görünmeyen küçük bir alanda deneyin; renk verme, solma veya doku değişimi varsa uygulamayın. Hassas, değerli ya da bakım etiketi bilinmeyen döşemelerde profesyonel destek alın.",
+  "tips": [
+    {
+      "id": "dokulunce-ilk-mudahale",
+      "category": "İlk müdahale",
+      "title": "Bir şey döküldüğünde önce tampon yapın",
+      "summary": "Temiz, beyaz ve emici bir bezle dıştan içe doğru hafifçe bastırarak sıvıyı alın.",
+      "avoid": "Ovalamayın; lekeyi yayabilir ve kumaş liflerini bozabilirsiniz."
+    },
+    {
+      "id": "su-lekesi",
+      "category": "Sıvı lekeleri",
+      "title": "Su döküldüyse bölgeyi havalandırın",
+      "summary": "Fazla nemi kuru beyaz bezle alın, minderleri ayırın ve odada hava dolaşımı sağlayın.",
+      "avoid": "Saç kurutma makinesini yakından ve yüksek ısıyla tutmayın."
+    },
+    {
+      "id": "cay-kahve",
+      "category": "İçecek",
+      "title": "Çay ve kahvede hızlı davranın",
+      "summary": "Sıvıyı tamponlayın. Bakım etiketi izin veriyorsa, hafif nemli beyaz bezle dış kenardan merkeze doğru çalışın.",
+      "avoid": "Lekeyi bastırarak yaymayın; renkli bez veya sıcak su kullanmayın."
+    },
+    {
+      "id": "kirmizi-sarap",
+      "category": "İçecek",
+      "title": "Kırmızı şarabı ovalamayın",
+      "summary": "Fazla sıvıyı hemen beyaz bezle tamponlayın ve kumaş türünü bilmeden kimyasal uygulamayın.",
+      "avoid": "Tuz, çamaşır suyu veya rastgele leke çıkarıcı dökmeyin."
+    },
+    {
+      "id": "yagli-yemek",
+      "category": "Yiyecek",
+      "title": "Yağlı yiyeceği önce yüzeyden alın",
+      "summary": "Katı kalıntıyı kumaşa bastırmadan, kör kenarlı bir kaşıkla nazikçe kaldırın; ardından kuru beyaz bezle tamponlayın.",
+      "avoid": "Sıcak su kullanmayın ve yağı kumaşın içine doğru ovalamayın."
+    },
+    {
+      "id": "cikolata",
+      "category": "Yiyecek",
+      "title": "Çikolatayı yaymadan kaldırın",
+      "summary": "Katı kısmı kör kenarlı bir kaşıkla alın. Kalan iz için bakım etiketine uygun yöntemi seçin.",
+      "avoid": "Isı uygulamayın; çikolatanın liflere daha fazla işlemesine neden olabilir."
+    },
+    {
+      "id": "domates-sosu",
+      "category": "Yiyecek",
+      "title": "Sos lekesinde dıştan içe ilerleyin",
+      "summary": "Fazla sosu yüzeyden alın ve temiz beyaz bezle lekenin kenarından merkezine doğru tampon yapın.",
+      "avoid": "Renkli peçete kullanmayın; boyası döşemeye geçebilir."
+    },
+    {
+      "id": "sut-yogurt",
+      "category": "Yiyecek",
+      "title": "Süt ve yoğurtta kalıntıyı bekletmeyin",
+      "summary": "Katı kalıntıyı kaldırın, sıvıyı tamponlayın ve kumaşı fazla ıslatmadan müdahale edin.",
+      "avoid": "Kokuyu parfümle bastırmaya çalışmayın; kalıntı kumaşta kalabilir."
+    },
+    {
+      "id": "evcil-hayvan-kazasi",
+      "category": "Evcil hayvan",
+      "title": "Evcil hayvan kazasında nemi hızla alın",
+      "summary": "Bölgeyi beyaz kâğıt havlu veya bezle tamponlayın ve temizlenene kadar kullanımını sınırlayın.",
+      "avoid": "Çamaşır suyu, amonyak veya güçlü kokulu ürünleri karıştırıp kullanmayın."
+    },
+    {
+      "id": "camur",
+      "category": "Kir",
+      "title": "Çamurun önce kurumasını bekleyin",
+      "summary": "Kuruyan toprağı düşük güçte ve uygun başlıklı süpürgeyle alın; kalan izi kumaş türüne göre değerlendirin.",
+      "avoid": "Islak çamuru silerek daha geniş bir alana yaymayın."
+    },
+    {
+      "id": "kan-lekesi",
+      "category": "Zor leke",
+      "title": "Kan lekesinde sıcak sudan kaçının",
+      "summary": "Eldiven kullanın, temiz beyaz bezle tamponlayın ve bakım etiketi izin veriyorsa yalnızca soğuk suyla çok kontrollü çalışın.",
+      "avoid": "Sıcak su kullanmayın; lekenin sabitlenmesine neden olabilir."
+    },
+    {
+      "id": "murekkep",
+      "category": "Zor leke",
+      "title": "Mürekkepte rastgele çözücü kullanmayın",
+      "summary": "Mürekkebi yaymadan tamponlayın ve kumaş türüne uygun profesyonel yöntem için destek alın.",
+      "avoid": "Kolonya, aseton veya alkolü doğrudan döşemeye dökmeyin."
+    },
+    {
+      "id": "sakiz",
+      "category": "Zor leke",
+      "title": "Sakızı çekiştirerek çıkarmayın",
+      "summary": "Yüzeye bastırmadan bırakın; kumaşın dokusuna zarar vermeden çıkarılması için profesyonel destek tercih edin.",
+      "avoid": "Keskin bıçak veya yüksek ısı kullanmayın."
+    },
+    {
+      "id": "mum",
+      "category": "Zor leke",
+      "title": "Mum lekesine ütüyle müdahale etmeyin",
+      "summary": "Mumun soğumasını bekleyin ve yüzeydeki parçayı kumaşı zorlamadan kaldırın.",
+      "avoid": "Ütü veya saç kurutma makinesi kullanmayın; ısı bazı kumaşları kalıcı olarak etkileyebilir."
+    },
+    {
+      "id": "makyaj",
+      "category": "Zor leke",
+      "title": "Makyaj ürününü kumaşa yedirmeyin",
+      "summary": "Fazla ürünü yüzeyden alın ve türünü not edin; yağlı ve su bazlı ürünler farklı yöntem gerektirebilir.",
+      "avoid": "Makyaj temizleme mendilini doğrudan kullanmayın; yağ veya boya bırakabilir."
+    },
+    {
+      "id": "duzenli-toz-alma",
+      "category": "Bakım",
+      "title": "Tozu kumaşa yerleşmeden alın",
+      "summary": "Düşük-orta güçte, temiz döşeme başlığıyla dikiş aralarını ve minder yüzeylerini düzenli süpürün.",
+      "avoid": "Sert veya kirli fırça başlığını kumaşa bastırmayın."
+    },
+    {
+      "id": "minderleri-dondurme",
+      "category": "Bakım",
+      "title": "Uygun minderleri düzenli çevirin",
+      "summary": "Üretici tasarımı uygunsa oturma minderlerinin yönünü değiştirerek kullanım izlerinin dengeli oluşmasını sağlayın.",
+      "avoid": "Sabit veya özel biçimli minderleri zorlamayın."
+    },
+    {
+      "id": "asiri-islatma",
+      "category": "Bakım",
+      "title": "Koltuk kumaşını fazla ıslatmayın",
+      "summary": "Evde müdahaleyi küçük ve kontrollü bir alanda tutun; dolguya geçen nem geç kurumaya ve kokuya yol açabilir.",
+      "avoid": "Kovayla su dökmeyin veya yüzeyi sırılsıklam bırakmayın."
+    },
+    {
+      "id": "hassas-kumaslar",
+      "category": "Kumaş",
+      "title": "Kadife, yün ve hassas kumaşlarda durun",
+      "summary": "Bakım kodunu bilmiyorsanız ev tipi karışım uygulamadan profesyonel değerlendirme isteyin.",
+      "avoid": "İnternetteki tek bir tarifi tüm kumaşlarda güvenli kabul etmeyin."
+    },
+    {
+      "id": "kimyasal-karistirma",
+      "category": "Güvenlik",
+      "title": "Temizlik ürünlerini karıştırmayın",
+      "summary": "Bir ürün kullanacaksanız etiketini okuyun, ortamı havalandırın ve çocuklarla evcil hayvanları uygulama alanından uzak tutun.",
+      "avoid": "Özellikle çamaşır suyunu amonyaklı, asitli veya başka temizlik ürünleriyle asla karıştırmayın."
+    }
+  ]
+}
