@@ -306,8 +306,8 @@ h3 {
 .hero-grid {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 6.3rem;
-  gap: 1rem 0.5rem;
+  grid-template-columns: minmax(0, 1fr) 7.35rem;
+  gap: 1rem 0.65rem;
 }
 
 .hero-copy {
@@ -374,14 +374,16 @@ h3 {
   position: relative;
   grid-column: 2;
   grid-row: 1;
-  align-self: start;
+  width: 100%;
+  align-self: center;
+  justify-self: center;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 1.15rem;
   background: var(--ink);
   color: var(--white);
   box-shadow: var(--shadow-sm);
-  transform: translateX(-0.75rem) rotate(2deg);
+  transform: none;
 }
 
 .hero-card::after {
@@ -393,31 +395,6 @@ h3 {
   border: 2rem solid rgba(255, 255, 255, 0.05);
   border-radius: 50%;
   content: "";
-}
-
-.hero-card__copy {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  display: grid;
-  gap: 0.35rem;
-  padding: 1.8rem 0.55rem 0.55rem;
-  background: linear-gradient(transparent, rgba(14, 41, 36, 0.92));
-}
-
-.hero-card__copy strong {
-  max-width: 20ch;
-  font-size: 0.68rem;
-  line-height: 1.2;
-  letter-spacing: -0.025em;
-}
-
-.hero-card__copy span {
-  display: none;
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 0.9rem;
 }
 
 .photo-wrap {
@@ -554,7 +531,7 @@ h3 {
 .family-photo {
   order: 2;
   aspect-ratio: 4 / 5;
-  margin-top: 0;
+  margin-top: 1rem;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
 }
@@ -922,16 +899,11 @@ h3 {
   gap: 0.65rem 1.1rem;
 }
 
-.footer-whatsapp,
 .footer-phone {
   color: var(--white);
   font-size: 0.9rem;
   font-weight: 750;
   text-underline-offset: 0.18em;
-}
-
-.footer-whatsapp {
-  color: #8ce2b3;
 }
 
 .footer-meta {
@@ -1171,6 +1143,7 @@ h3 {
   }
 
   .hero-card {
+    width: min(100%, 30rem);
     border-radius: 2rem;
   }
 
@@ -1281,12 +1254,11 @@ h3 {
   }
 
   .process-list li {
-    display: grid;
-    grid-template-rows: 2.6rem minmax(3.5rem, auto);
-    min-height: 11rem;
-    align-content: center;
-    align-items: start;
-    padding: 1.6rem;
+    display: flex;
+    min-height: 8.75rem;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.35rem;
   }
 
   .process-list li + li {
@@ -1309,13 +1281,14 @@ h3 {
 
   .faq-carousel {
     width: 100%;
-    max-width: none;
+    max-width: 34rem;
     padding-inline: 1.5rem;
+    margin-inline: auto;
   }
 
   .faq-card {
-    min-height: 11.5rem;
-    padding: 1.5rem 2rem;
+    min-height: 10.5rem;
+    padding: 1.3rem 1.75rem;
   }
 
   .faq-card h3 {
@@ -1328,11 +1301,12 @@ h3 {
 
   .faq-carousel.is-enhanced .faq-card {
     right: 1.35rem;
+    left: 1.35rem;
   }
 
   .faq-carousel.is-enhanced .faq-controls {
-    right: -1.1rem;
-    left: -1.1rem;
+    right: 0;
+    left: 0;
   }
 
   .final-cta {
@@ -1382,25 +1356,9 @@ h3 {
   .hero-card {
     grid-column: auto;
     grid-row: auto;
-    transform: rotate(1.2deg);
+    transform: none;
     border-radius: 2rem;
     box-shadow: var(--shadow-lg);
-  }
-
-  .hero-card__copy {
-    position: relative;
-    padding: 1.25rem;
-    background: none;
-    transform: rotate(-1.2deg);
-  }
-
-  .hero-card__copy strong {
-    font-size: clamp(1.35rem, 3vw, 1.8rem);
-    line-height: 1.12;
-  }
-
-  .hero-card__copy span {
-    display: block;
   }
 
   .hero-photo {
