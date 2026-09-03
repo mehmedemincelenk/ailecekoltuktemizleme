@@ -314,6 +314,28 @@ h3 {
   display: contents;
 }
 
+.hero-location {
+  display: inline-flex;
+  grid-column: 1 / -1;
+  grid-row: 1;
+  align-items: center;
+  gap: 0.35rem;
+  width: fit-content;
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.055em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.hero-location svg {
+  width: 1rem;
+  min-width: 1rem;
+  color: var(--whatsapp);
+}
+
 .section-kicker {
   margin-bottom: 1rem;
   color: var(--ink);
@@ -326,6 +348,7 @@ h3 {
 
 .hero h1 {
   grid-column: 1;
+  grid-row: 2;
   max-width: 18ch;
   margin-bottom: 0;
   font-size: clamp(1.72rem, 7.6vw, 3.2rem);
@@ -341,6 +364,7 @@ h3 {
 
 .hero-lede {
   grid-column: 1 / -1;
+  grid-row: 3;
   max-width: 38rem;
   margin-bottom: 0;
   color: var(--ink-muted);
@@ -359,21 +383,14 @@ h3 {
 .hero-action {
   display: grid;
   grid-column: 1 / -1;
+  grid-row: 4;
   gap: 0.75rem;
-}
-
-.hero-action p {
-  margin: 0;
-  color: var(--ink-muted);
-  font-size: 0.86rem;
-  line-height: 1.45;
-  text-align: center;
 }
 
 .hero-card {
   position: relative;
   grid-column: 2;
-  grid-row: 1;
+  grid-row: 2;
   width: 100%;
   align-self: center;
   justify-self: center;
@@ -438,7 +455,7 @@ h3 {
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
-  padding: 0.75rem 0.25rem;
+  padding: 0.75rem 0.15rem;
   text-align: center;
 }
 
@@ -460,13 +477,70 @@ h3 {
 
 .trust-item strong {
   color: var(--ink-deep);
-  font-size: 0.86rem;
+  font-size: 0.78rem;
 }
 
 .trust-item span {
   margin-top: 0.1rem;
   color: var(--ink-muted);
-  font-size: 0.72rem;
+  font-size: 0.66rem;
+}
+
+.customer-reviews[hidden] {
+  display: none;
+}
+
+.customer-reviews {
+  padding-block: 3.75rem;
+  background: var(--cream);
+}
+
+.customer-reviews-heading {
+  max-width: 38rem;
+  margin-bottom: 1.5rem;
+}
+
+.customer-reviews-heading .section-kicker {
+  margin-bottom: 0.55rem;
+}
+
+.customer-reviews-heading h2 {
+  margin-bottom: 0;
+  font-size: clamp(1.85rem, 7vw, 2.75rem);
+}
+
+.customer-review-slider {
+  display: flex;
+  gap: 0.8rem;
+  overflow: hidden;
+  padding: 0.25rem 0.15rem 1.1rem;
+}
+
+.customer-review-card {
+  flex: 0 0 min(82%, 20rem);
+  min-height: 11rem;
+  padding: 1.35rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--paper);
+  box-shadow: var(--shadow-sm);
+}
+
+.customer-review-card svg {
+  width: 1.5rem;
+  margin-bottom: 1.25rem;
+  color: var(--warm);
+}
+
+.customer-review-card p {
+  color: var(--ink-deep);
+  font-size: 1.05rem;
+  font-weight: 720;
+  line-height: 1.45;
+}
+
+.customer-reviews[data-preview="true"] .customer-review-card {
+  border-style: dashed;
 }
 
 .family-section {
@@ -487,11 +561,6 @@ h3 {
 
 .family-copy {
   order: 1;
-}
-
-.family-grid > .check-list {
-  order: 3;
-  margin-top: 1.5rem;
 }
 
 .family-copy > p:not(.section-kicker) {
@@ -534,6 +603,33 @@ h3 {
   margin-top: 1rem;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
+}
+
+.family-photo .check-list {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 2.5rem 1rem 1rem;
+  background: linear-gradient(180deg, transparent, rgba(7, 31, 26, 0.92) 36%);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+.family-photo .check-list li {
+  gap: 0.55rem;
+  color: var(--white);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.family-photo .check-list svg {
+  width: 1.1rem;
+  min-width: 1.1rem;
+  color: #7ee2a8;
 }
 
 .family-photo img {
@@ -668,16 +764,6 @@ h3 {
   font-size: 1rem;
   font-weight: 750;
   line-height: 1.35;
-}
-
-.process-duration {
-  display: block;
-  margin: 1.25rem auto 0;
-  color: var(--ink-muted);
-  font-size: 0.86rem;
-  font-weight: 750;
-  line-height: 1.35;
-  text-align: center;
 }
 
 .faq {
@@ -1104,10 +1190,6 @@ h3 {
     justify-items: start;
   }
 
-  .hero-action p {
-    text-align: left;
-  }
-
 }
 
 @media (min-width: 48rem) {
@@ -1179,11 +1261,23 @@ h3 {
     font-size: 0.88rem;
   }
 
+  .customer-reviews {
+    padding-block: 5rem;
+  }
+
+  .customer-review-slider {
+    gap: 1rem;
+  }
+
+  .customer-review-card {
+    flex-basis: min(40%, 24rem);
+    min-height: 12rem;
+    padding: 1.6rem;
+  }
+
   .family-grid {
     grid-template-columns: minmax(18rem, 0.9fr) minmax(0, 1.1fr);
-    grid-template-areas:
-      "photo copy"
-      "photo checks";
+    grid-template-areas: "photo copy";
     max-width: 68rem;
     align-items: center;
     column-gap: clamp(2.5rem, 6vw, 5rem);
@@ -1202,10 +1296,13 @@ h3 {
     align-self: end;
   }
 
-  .family-grid > .check-list {
-    grid-area: checks;
-    align-self: start;
-    margin-top: 0;
+  .family-photo .check-list {
+    gap: 0.7rem;
+    padding: 3.5rem 1.35rem 1.35rem;
+  }
+
+  .family-photo .check-list li {
+    font-size: 0.88rem;
   }
 
   .service-grid {
@@ -1342,6 +1439,10 @@ h3 {
 
   .hero-copy {
     display: block;
+  }
+
+  .hero-location {
+    margin-bottom: 0.9rem;
   }
 
   .hero h1 {

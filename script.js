@@ -116,6 +116,75 @@
     });
   }
 
+  const customerReviewSection = document.querySelector("[data-customer-reviews]");
+  const customerReviewSlider = document.querySelector("[data-customer-review-slider]");
+  const reviewPreviewMode = window.location.protocol === "file:"
+    || new URLSearchParams(window.location.search).get("preview-reviews") === "1";
+  const visibleReviews = (window.AKL_REVIEW_DRAFTS || []).filter(
+    (review) => review.verified === true || reviewPreviewMode,
+  );
+
+  if (customerReviewSection && customerReviewSlider && visibleReviews.length) {
+    for (const review of visibleReviews) {
+      const article = document.createElement("article");
+      article.className = "customer-review-card";
+
+      const quoteIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      quoteIcon.setAttribute("viewBox", "0 0 24 24");
+      quoteIcon.setAttribute("aria-hidden", "true");
+      quoteIcon.innerHTML = '<path d="M9.5 7.5H5.8A2.8 2.8 0 0 0 3 10.3v1.2a3 3 0 0 0 3 3h2.5v2H6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M21 7.5h-3.7a2.8 2.8 0 0 0-2.8 2.8v1.2a3 3 0 0 0 3 3H20v2h-2.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>';
+
+      const copy = document.createElement("p");
+      copy.textContent = review.copy;
+
+      article.append(quoteIcon, copy);
+      customerReviewSlider.append(article);
+    }
+
+    const reviewReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let reviewAutoplayInterval;
+
+    const moveReviewsByCard = () => {
+      const card = customerReviewSlider.querySelector(".customer-review-card");
+      if (!card) return;
+
+      const gap = Number.parseFloat(getComputedStyle(customerReviewSlider).getPropertyValue("gap")) || 0;
+      const isAtEnd = customerReviewSlider.scrollLeft + customerReviewSlider.clientWidth
+        >= customerReviewSlider.scrollWidth - 4;
+
+      if (isAtEnd) {
+        customerReviewSlider.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        customerReviewSlider.scrollBy({
+          left: card.getBoundingClientRect().width + gap,
+          behavior: "smooth",
+        });
+      }
+    };
+
+    const stopReviewAutoplay = () => {
+      window.clearInterval(reviewAutoplayInterval);
+    };
+
+    const startReviewAutoplay = () => {
+      stopReviewAutoplay();
+      if (reviewReducedMotion.matches || document.hidden) return;
+      reviewAutoplayInterval = window.setInterval(moveReviewsByCard, 3000);
+    };
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) stopReviewAutoplay();
+      else startReviewAutoplay();
+    });
+
+    if (reviewPreviewMode) {
+      customerReviewSection.dataset.preview = "true";
+    }
+
+    customerReviewSection.hidden = false;
+    startReviewAutoplay();
+  }
+
   const floatingCta = document.querySelector(".mobile-cta");
   const inlineCtas = [
     document.querySelector('[data-cta-placement="hero"]'),

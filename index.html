@@ -37,6 +37,7 @@
 
     <link rel="stylesheet" href="styles.css">
     <script src="analytics-config.js"></script>
+    <script src="data/review-drafts.js" defer></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
@@ -51,7 +52,6 @@
     <script src="script.js" defer></script>
 
     <!-- TODO: Add the verified Google Tag Manager or GA4 ID in analytics-config.js. -->
-    <!-- TODO: Add the Google Search Console verification record after the property is created. -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -121,6 +121,13 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="container hero-grid">
           <div class="hero-copy">
+            <p class="hero-location">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 21s7-6.2 7-11.5a7 7 0 1 0-14 0C5 14.8 12 21 12 21Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="12" cy="9.5" r="2.3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+              İstanbul Avrupa Yakası
+            </p>
             <h1 id="hero-title">
               Koltuklarınızı temizlemeye
               <span class="message-underline message-underline--problem">tanımadığınız birileri</span>
@@ -146,7 +153,6 @@
                 </svg>
                 Fotoğraf Gönder, Fiyat &amp; Randevu Al
               </a>
-              <p class="hero-duration"><span aria-hidden="true">🧼</span> Ortalama temizlik süresi: 3 saat</p>
             </div>
           </div>
 
@@ -184,12 +190,23 @@
             </div>
             <div class="trust-item">
               <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 21s7-6.2 7-11.5a7 7 0 1 0-14 0C5 14.8 12 21 12 21Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="12" cy="9.5" r="2.3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="13" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M9 3h6M12 5v2m0 6 3-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              <p><strong>İstanbul</strong><span>Avrupa Yakası</span></p>
+              <p><strong>3+ saat</strong><span>temizlik süresi</span></p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section class="customer-reviews section" aria-labelledby="yorumlar-basligi" data-customer-reviews hidden>
+        <div class="container">
+          <div class="customer-reviews-heading">
+            <p class="section-kicker">Müşterilerimizden</p>
+            <h2 id="yorumlar-basligi">Temizlik sonrası gelen mesajlar.</h2>
+          </div>
+
+          <div class="customer-review-slider" data-customer-review-slider></div>
         </div>
       </section>
 
@@ -204,6 +221,20 @@
               loading="lazy"
               decoding="async"
             >
+            <ul class="check-list" role="list">
+                <li>
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m4 10.5 3.5 3.5L16 5.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Randevunuza aynı aile ekibi birlikte gelir.
+                </li>
+                <li>
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m4 10.5 3.5 3.5L16 5.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Randevu günü, saati ve ücret baştan netleşir.
+                </li>
+                <li>
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m4 10.5 3.5 3.5L16 5.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Kapsam değişmedikçe konuşulan fiyat değişmez.
+                </li>
+            </ul>
           </div>
 
           <div class="family-copy">
@@ -215,20 +246,6 @@
             </p>
           </div>
 
-          <ul class="check-list" role="list">
-              <li>
-                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m4 10.5 3.5 3.5L16 5.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Randevunuza aynı aile ekibi birlikte gelir.
-              </li>
-              <li>
-                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m4 10.5 3.5 3.5L16 5.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Randevu günü, saati ve ücret baştan netleşir.
-              </li>
-              <li>
-                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m4 10.5 3.5 3.5L16 5.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Kapsam değişmedikçe konuşulan fiyat değişmez.
-              </li>
-          </ul>
         </div>
       </section>
 
@@ -298,7 +315,6 @@
             </li>
           </ol>
 
-          <p class="process-duration"><span aria-hidden="true">🧼</span> Ortalama bir evde temizlik yaklaşık 3 saat sürer.</p>
         </div>
       </section>
 
@@ -406,7 +422,7 @@
       <div class="container footer-meta">
         <span>İstanbul Avrupa Yakası</span>
         <nav class="footer-links" aria-label="Yasal bağlantılar">
-          <a href="gizlilik.html">Gizlilik ve KVKK</a>
+          <a href="/kvkk/">Gizlilik ve KVKK</a>
           <button type="button" data-cookie-settings hidden>Çerez tercihleri</button>
         </nav>
       </div>
