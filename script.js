@@ -70,14 +70,9 @@
     if (cookieSettings) cookieSettings.hidden = false;
 
     const savedConsent = readConsent();
-
-    if (savedConsent === "granted") {
-      updateAnalyticsConsent(true);
-    } else if (savedConsent === "denied") {
-      updateAnalyticsConsent(false);
-    } else if (consentBanner) {
-      consentBanner.hidden = false;
-    }
+    if (savedConsent === "granted") updateAnalyticsConsent(true);
+    else if (savedConsent === "denied") updateAnalyticsConsent(false);
+    else if (consentBanner) consentBanner.hidden = false;
 
     const chooseConsent = (granted) => {
       saveConsent(granted ? "granted" : "denied");
@@ -92,9 +87,7 @@
     });
   }
 
-  const whatsappLinks = document.querySelectorAll("[data-whatsapp-cta]");
-
-  for (const link of whatsappLinks) {
+  for (const link of document.querySelectorAll("[data-whatsapp-cta]")) {
     link.addEventListener("click", () => {
       window.dataLayer.push({
         event: "whatsapp_click",
@@ -104,9 +97,7 @@
     });
   }
 
-  const phoneLinks = document.querySelectorAll("[data-phone-cta]");
-
-  for (const link of phoneLinks) {
+  for (const link of document.querySelectorAll("[data-phone-cta]")) {
     link.addEventListener("click", () => {
       window.dataLayer.push({
         event: "phone_click",
@@ -124,7 +115,6 @@
 
   if (floatingCta && inlineCtas.length && "IntersectionObserver" in window) {
     const visibility = new Map(inlineCtas.map((cta) => [cta, false]));
-
     const updateFloatingCta = () => {
       const shouldHide = [...visibility.values()].some(Boolean);
       floatingCta.classList.toggle("is-hidden", shouldHide);
@@ -132,141 +122,52 @@
       floatingCta.setAttribute("aria-hidden", String(shouldHide));
     };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          visibility.set(entry.target, entry.isIntersecting);
-        }
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) visibility.set(entry.target, entry.isIntersecting);
+      updateFloatingCta();
+    }, { threshold: 0 });
 
-        updateFloatingCta();
-      },
-      { threshold: 0 },
-    );
-
-    for (const cta of inlineCtas) {
-      observer.observe(cta);
-    }
+    for (const cta of inlineCtas) observer.observe(cta);
   }
 
-  const faqCarousel = document.querySelector("[data-faq-carousel]");
+  const heroGallery = document.querySelector("[data-hero-gallery]");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  if (faqCarousel) {
-    const cards = [...faqCarousel.querySelectorAll(".faq-card")];
-    const stage = faqCarousel.querySelector("[data-faq-stage]");
-    const previousButton = faqCarousel.querySelector("[data-faq-prev]");
-    const nextButton = faqCarousel.querySelector("[data-faq-next]");
-    const liveRegion = faqCarousel.querySelector("[data-faq-live]");
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    let currentIndex = 0;
-    let resumeTimeout;
-    let autoplayInterval;
+  if (heroGallery && !reducedMotion) {
+    let intervalId;
+    let resumeId;
 
-    const updateStageHeight = () => {
-      if (stage && cards.length) {
-        cards.forEach((card) => {
-          card.style.height = "";
-        });
+    const stop = () => window.clearInterval(intervalId);
+    const advance = () => {
+      const card = heroGallery.querySelector("figure");
+      if (!card) return;
+      const gap = Number.parseFloat(getComputedStyle(heroGallery).gap) || 0;
+      const maxPosition = heroGallery.scrollWidth - heroGallery.clientWidth;
+      const nextPosition = heroGallery.scrollLeft + card.offsetWidth + gap;
 
-        const tallestCard = Math.max(...cards.map((card) => card.offsetHeight));
-
-        cards.forEach((card) => {
-          card.style.height = `${tallestCard}px`;
-        });
-        stage.style.height = `${tallestCard + 20}px`;
-      }
-    };
-
-    const showCard = (nextIndex, announce = false) => {
-      currentIndex = (nextIndex + cards.length) % cards.length;
-
-      cards.forEach((card, index) => {
-        const offset = (index - currentIndex + cards.length) % cards.length;
-        const state = offset === 0 ? "active" : offset === 1 ? "next" : offset === 2 ? "after" : "hidden";
-        card.dataset.state = state;
-        card.setAttribute("aria-hidden", String(state !== "active"));
-      });
-
-      if (announce) {
-        liveRegion.textContent = `${currentIndex + 1}. soru gösteriliyor: ${cards[currentIndex].querySelector("h3").textContent}`;
+      if (nextPosition >= maxPosition - 2) {
+        heroGallery.scrollTo({ left: 0, behavior: "auto" });
+        return;
       }
 
-      updateStageHeight();
+      heroGallery.scrollTo({ left: nextPosition, behavior: "smooth" });
+    };
+    const start = () => {
+      stop();
+      intervalId = window.setInterval(advance, 4200);
+    };
+    const pauseTemporarily = () => {
+      stop();
+      window.clearTimeout(resumeId);
+      resumeId = window.setTimeout(start, 10000);
     };
 
-    const stopAutoplay = () => {
-      window.clearTimeout(resumeTimeout);
-      window.clearInterval(autoplayInterval);
-    };
-
-    const startAutoplay = () => {
-      stopAutoplay();
-      if (reducedMotion.matches || document.hidden) return;
-
-      autoplayInterval = window.setInterval(() => {
-        showCard(currentIndex + 1);
-      }, 3000);
-    };
-
-    const pauseForInteraction = () => {
-      stopAutoplay();
-
-      if (!reducedMotion.matches && !document.hidden) {
-        resumeTimeout = window.setTimeout(startAutoplay, 15000);
-      }
-    };
-
-    const moveManually = (direction) => {
-      showCard(currentIndex + direction, true);
-      pauseForInteraction();
-    };
-
-    previousButton.addEventListener("click", () => moveManually(-1));
-    nextButton.addEventListener("click", () => moveManually(1));
-    stage.addEventListener("click", pauseForInteraction);
-
-    let pointerStartX = null;
-
-    stage.addEventListener("pointerdown", (event) => {
-      if (event.pointerType === "mouse" && event.button !== 0) return;
-      pointerStartX = event.clientX;
-      pauseForInteraction();
-    });
-
-    stage.addEventListener("pointerup", (event) => {
-      if (pointerStartX === null) return;
-
-      const distance = event.clientX - pointerStartX;
-      pointerStartX = null;
-
-      if (Math.abs(distance) >= 45) {
-        moveManually(distance < 0 ? 1 : -1);
-      } else {
-        pauseForInteraction();
-      }
-    });
-
-    stage.addEventListener("pointercancel", () => {
-      pointerStartX = null;
-      pauseForInteraction();
-    });
-    reducedMotion.addEventListener("change", () => {
-      if (reducedMotion.matches) {
-        stopAutoplay();
-      } else {
-        startAutoplay();
-      }
-    });
+    heroGallery.addEventListener("pointerdown", pauseTemporarily, { passive: true });
+    heroGallery.addEventListener("focusin", pauseTemporarily);
     document.addEventListener("visibilitychange", () => {
-      if (document.hidden) {
-        stopAutoplay();
-      } else {
-        startAutoplay();
-      }
+      if (document.hidden) stop();
+      else start();
     });
-    window.addEventListener("resize", updateStageHeight);
-
-    faqCarousel.classList.add("is-enhanced");
-    showCard(0);
-    startAutoplay();
+    start();
   }
 })();
