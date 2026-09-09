@@ -58,7 +58,7 @@ h2 { margin-bottom: 1rem; font-size: clamp(1.9rem, 8vw, 3.5rem); }
 }
 .header-inner { display: flex; min-height: 3.35rem; align-items: center; gap: .6rem; padding-inline: .7rem; }
 .brand { display: inline-flex; align-items: center; gap: .38rem; min-width: 0; color: var(--ink); text-decoration: none; }
-.brand-mark { width: 1.75rem; min-width: 1.75rem; }
+.brand-mark { width: 1.75rem; min-width: 1.75rem; border-radius: 50%; }
 .brand-word { font-size: 1.05rem; font-weight: 800; letter-spacing: -.075em; }
 .phone-link { padding: .65rem .1rem; margin-left: auto; color: var(--ink-deep); font-size: .73rem; font-weight: 800; letter-spacing: -.02em; text-decoration: none; white-space: nowrap; }
 
@@ -72,6 +72,7 @@ h2 { margin-bottom: 1rem; font-size: clamp(1.9rem, 8vw, 3.5rem); }
 }
 .button svg { width: 1.25rem; min-width: 1.25rem; }
 .button--primary { width: 100%; background: var(--whatsapp); color: var(--white); box-shadow: 0 10px 20px rgba(8, 125, 69, .22); }
+.hero-note { margin: .65rem 0 0; color: var(--ink-muted); font-size: .78rem; font-weight: 650; text-align: center; }
 .hero-gallery-shell { min-width: 0; margin-top: 1.25rem; }
 .hero-gallery {
   display: flex;
@@ -91,8 +92,8 @@ h2 { margin-bottom: 1rem; font-size: clamp(1.9rem, 8vw, 3.5rem); }
 .hero-gallery figure { flex: 0 0 min(62vw, 14rem); aspect-ratio: 4 / 5; overflow: hidden; margin: 0; border: 1px solid rgba(23, 59, 51, .16); border-radius: 1rem; background: var(--sage); box-shadow: 0 10px 24px rgba(15, 42, 35, .13); scroll-snap-align: start; }
 .hero-gallery img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 
-.proof { position: relative; z-index: 2; margin-top: 0; }
-.proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); overflow: hidden; border: 1px solid var(--line); border-radius: 1rem; background: var(--paper); box-shadow: var(--shadow); }
+.proof { overflow: clip; padding-bottom: 1.25rem; background: var(--cream); }
+.proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); overflow: hidden; border: 1px solid var(--line); border-radius: 1rem; background: var(--paper); }
 .proof-grid p { display: grid; min-width: 0; min-height: 5.6rem; justify-items: center; align-content: center; gap: .18rem; padding: .65rem .2rem; margin: 0; text-align: center; }
 .proof-grid svg { width: 1.28rem; color: var(--whatsapp); }
 .proof-grid p + p { border-left: 1px solid var(--line); }
@@ -130,7 +131,9 @@ h2 { margin-bottom: 1rem; font-size: clamp(1.9rem, 8vw, 3.5rem); }
 .site-footer { padding-block: 2.5rem 6rem; background: var(--ink-deep); color: rgba(255, 255, 255, .7); }
 .footer-inner, .footer-meta { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1rem; }
 .footer-brand-line { display: inline-flex; align-items: center; gap: .45rem; }
-.footer-brand-line svg { width: 2rem; color: var(--white); }
+.footer-brand-icon { position: relative; display: block; width: 1.75rem; min-width: 1.75rem; }
+.footer-brand-icon .brand-mark { width: 100%; min-width: 0; }
+.footer-brand-icon::after { position: absolute; top: 15.6%; left: 20.3%; width: 59.4%; aspect-ratio: 1; border: 1px solid var(--white); border-radius: 50%; content: ""; pointer-events: none; }
 .footer-brand-line strong { font-size: 1.25rem; letter-spacing: -.075em; }
 .footer-inner strong { color: var(--white); }
 .footer-inner p { margin: .2rem 0 0; color: #f1c49d; font-size: .84rem; }
@@ -167,14 +170,16 @@ h2 { margin-bottom: 1rem; font-size: clamp(1.9rem, 8vw, 3.5rem); }
   .site-header { top: .75rem; }
   .header-inner { min-height: 3.65rem; padding-inline: 1rem; }
   .brand-mark { width: 2rem; min-width: 2rem; }
+  .footer-brand-icon { width: 2rem; min-width: 2rem; }
   .brand-word { font-size: 1.15rem; }
   .phone-link { padding-inline: .5rem; font-size: .86rem; }
-  .hero { padding-block: 5rem 6rem; }
+  .hero { padding-block: 2.5rem; }
   .hero .container { display: grid; grid-template-columns: minmax(0, .95fr) minmax(20rem, .75fr); align-items: center; column-gap: clamp(2rem, 6vw, 5rem); }
   .hero .eyebrow { grid-column: 1; }
   .hero h1 { grid-column: 1; margin-bottom: 1.7rem; font-size: clamp(3.2rem, 5.6vw, 5rem); }
   .hero .button { grid-column: 1; justify-self: start; width: auto; }
-  .hero-gallery-shell { grid-column: 2; grid-row: 1 / span 3; width: 100%; margin: 0; }
+  .hero-note { grid-column: 1; justify-self: start; }
+  .hero-gallery-shell { grid-column: 2; grid-row: 1 / span 4; width: 100%; margin: 0; }
   .hero-gallery figure { flex-basis: min(19rem, 85%); }
   .proof { margin-top: 0; }
   .proof-grid p { min-height: 6.3rem; }

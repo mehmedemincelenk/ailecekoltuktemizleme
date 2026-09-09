@@ -1,5 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="18" fill="#173b33"/>
   <defs><clipPath id="face"><circle cx="32" cy="29" r="19"/></clipPath></defs>
   <g clip-path="url(#face)">
     <rect x="13" y="10" width="19" height="38" fill="#efbc87"/>
@@ -11,5 +10,5 @@
     <path d="M38 37c3 3 7 3 10 0" fill="none" stroke="#d9a262" stroke-width="2.5" stroke-linecap="round"/>
     <circle cx="25" cy="29" r="1.4" fill="#173b33"/><circle cx="39" cy="29" r="1.4" fill="#173b33"/>
   </g>
-  <circle cx="32" cy="29" r="19" fill="none" stroke="#fffdf9" stroke-width="2.5"/>
+  <circle cx="32" cy="29" r="19" fill="none" stroke="#173b33" stroke-width="2.5"/>
 </svg>

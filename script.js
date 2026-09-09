@@ -159,7 +159,7 @@
     const pauseTemporarily = () => {
       stop();
       window.clearTimeout(resumeId);
-      resumeId = window.setTimeout(start, 10000);
+      resumeId = window.setTimeout(start, 3000);
     };
 
     heroGallery.addEventListener("pointerdown", pauseTemporarily, { passive: true });
