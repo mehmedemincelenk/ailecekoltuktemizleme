@@ -202,6 +202,21 @@
       event.preventDefault();
       advanceReviews();
     });
+
+    if (!reducedMotion) {
+      let reviewIntervalId;
+      const stopReviews = () => window.clearInterval(reviewIntervalId);
+      const startReviews = () => {
+        stopReviews();
+        reviewIntervalId = window.setInterval(advanceReviews, 4200);
+      };
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) stopReviews();
+        else startReviews();
+      });
+      startReviews();
+    }
+
     reviewsSection.hidden = false;
   }
 })();
