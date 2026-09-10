@@ -39,6 +39,7 @@
         wait_for_update: 500
       });
     </script>
+    <script src="data/customer-reviews.js" defer></script>
     <script src="script.js" defer></script>
     <script type="application/ld+json">
       {
@@ -80,7 +81,7 @@
           </a>
           <p class="hero-note">Ücret temizlik bitince alınır.</p>
           <div class="hero-gallery-shell">
-            <div class="hero-gallery" aria-label="Ailece koltuk temizliği tanıtım görselleri" data-hero-gallery>
+            <div class="hero-gallery" role="button" tabindex="0" aria-label="Temizlik görselleri. Sonraki görsel için dokunun." data-hero-gallery>
               <figure><img src="assets/images/galeri-04.webp" width="1145" height="1374" alt="Koltuk yıkama başlığıyla yakın temizlik uygulaması" fetchpriority="high" decoding="async"></figure>
               <figure><img src="assets/images/galeri-01.webp" width="1122" height="1402" alt="Ailece Koltuk Temizleme ekibi ve profesyonel ekipmanı" loading="lazy" decoding="async"></figure>
               <figure><img src="assets/images/galeri-03.webp" width="1122" height="1402" alt="Koltuk temizleme makinesi ve çalışma alanı" loading="lazy" decoding="async"></figure>
@@ -113,16 +114,30 @@
         </div>
       </section>
 
+      <section class="reviews section" aria-labelledby="yorumlar-basligi" data-reviews-section hidden>
+        <div class="container">
+          <p class="eyebrow">Müşterilerimizden 🌼</p>
+          <h2 id="yorumlar-basligi">Temizlik sonrası bize yazdıkları.</h2>
+          <div class="review-gallery" role="button" tabindex="0" aria-label="Müşteri mesajları. Sonraki mesaj için dokunun." data-review-gallery></div>
+        </div>
+      </section>
+
       <section class="faq section" id="sss" aria-labelledby="sss-basligi">
         <div class="container">
-          <p class="eyebrow">Merak ettikleriniz</p>
-          <h2 id="sss-basligi">Aklınızda soru kalmasın.</h2>
-          <p class="section-copy">Başka bir sorunuz varsa <a href="https://wa.me/905373420161?text=Merhaba%2C%20koltuklar%C4%B1m%C4%B1%20y%C4%B1katmak%20istiyorum.%20Foto%C4%9Fraflar%C4%B1%20g%C3%B6nderip%20fiyat%20alabilir%20miyim%3F" target="_blank" rel="noopener noreferrer" data-whatsapp-cta data-cta-placement="faq_intro">WhatsApp’tan yazabilirsiniz.</a></p>
+          <div class="faq-intro">
+            <p class="eyebrow">Merak ettikleriniz</p>
+            <h2 id="sss-basligi">Aklınızda soru kalmasın.</h2>
+            <p class="section-copy">Başka bir sorunuz varsa <a href="https://wa.me/905373420161?text=Merhaba%2C%20koltuklar%C4%B1m%C4%B1%20y%C4%B1katmak%20istiyorum.%20Foto%C4%9Fraflar%C4%B1%20g%C3%B6nderip%20fiyat%20alabilir%20miyim%3F" target="_blank" rel="noopener noreferrer" data-whatsapp-cta data-cta-placement="faq_intro">WhatsApp’tan yazabilirsiniz.</a></p>
+          </div>
           <div class="faq-list">
             <details><summary>Fiyatı nasıl öğrenebilirim?</summary><p>Fotoğrafları WhatsApp’tan gönderin; net fiyatı paylaşalım.</p></details>
             <details><summary>Koltuklarımı temizlemeye kim gelecek?</summary><p>Her randevuya eşimle birlikte, aynı aile ekibi olarak geliyoruz.</p></details>
             <details><summary>Neleri temizliyorsunuz?</summary><p>Koltuk, kumaş sandalye, yatak ve uygun kumaş yüzeyleri.</p></details>
             <details><summary>Fiyat sonradan değişir mi?</summary><p>Kapsam değişmedikçe konuştuğumuz fiyat değişmez.</p></details>
+            <details><summary>Her leke tamamen çıkar mı?</summary><p>Sonuç; lekenin türüne, yaşına ve kumaşa göre değişebilir. Kesin olmayan bir sonucu garanti etmeyiz.</p></details>
+            <details><summary>Koltuklar ne kadar sürede kurur?</summary><p>Kuruma süresi kumaşa ve ortam koşullarına göre değişir. İyi havalandırma kuruma sürecini hızlandırır.</p></details>
+            <details><summary>Kumaşım temizliğe uygun mu?</summary><p>Emin olmadığınız yüzeyin fotoğrafını gönderin; temizlikten önce uygunluğunu birlikte değerlendirelim.</p></details>
+            <details><summary>Randevu saatine dikkat ediyor musunuz?</summary><p>Kararlaştırdığımız gün ve saate özen gösteriyoruz.</p></details>
           </div>
         </div>
       </section>
@@ -147,7 +162,12 @@
         <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5h8v8H8zm1 8-1 6m7-6 1 6M5.5 10H8m8 0h2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Sandalye</span>
         <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v10H4zM4 11h16M7 7V5m10 2V5m-10 12v2m10-2v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Yatak</span>
       </div>
-      <div class="container footer-meta"><span>İstanbul Avrupa Yakası</span><a href="/kvkk/">Gizlilik ve KVKK</a><button type="button" data-cookie-settings hidden>Çerez tercihleri</button></div>
+      <div class="container footer-meta">
+        <span>İstanbul Avrupa Yakası</span>
+        <a href="/kvkk/">Gizlilik ve KVKK</a>
+        <button type="button" data-cookie-settings hidden>Çerez tercihleri</button>
+        <a class="developer-credit" href="https://wa.me/905373420161?text=Merhaba%2C%20web%20sitesi%20hakk%C4%B1nda%20ileti%C5%9Fime%20ge%C3%A7iyorum." target="_blank" rel="noopener noreferrer">Web sitesi: Muhammed Emin Çelenk</a>
+      </div>
     </footer>
 
     <div class="mobile-cta is-hidden" aria-hidden="true" inert>

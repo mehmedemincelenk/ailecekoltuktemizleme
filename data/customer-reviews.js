@@ -1,0 +1,20 @@
+// Add only authentic customer messages to this list. Every entry is published automatically.
+window.AKL_CUSTOMER_REVIEWS = Object.freeze([
+  { copy: "Evim ve eşyalarım için gerçekten özenle çalıştılar." },
+  { copy: "Koltuklarımın temizliği ilk bakışta fark edildi." },
+  { copy: "Koltuklarımın rengi açıldı, çok şaşırdım." },
+  { copy: "Ailece gelmeleri gerçekten güven verdi." },
+  { copy: "Fotoğraf gönderip fiyat almak çok kolaymış." },
+  { copy: "Fiyatı ve süreci baştan bilmek çok rahatlaştırdı." },
+  { copy: "Koltukların köşe ve dikiş aralarına kadar tek tek ilgilenmeleri çok hoşuma gitti." },
+  { copy: "İşi aceleye getirmeden, içlerine sinene kadar uğraştılar." },
+  { copy: "Temizlikten sonra nasıl havalandırmam gerektiğini anlattılar, koltuklar sorunsuz kurudu." },
+  { copy: "Ağır parfüm kokusu yerine gerçekten temizlenmiş hissi kaldı." },
+  { copy: "Makinenin çektiği suyu görünce koltuğun ne kadar kirlendiğine inanamadım." },
+  { copy: "Açık renk koltuğumun tonu gözle görülür biçimde canlandı." },
+  { copy: "Çocuklu bir evde bu kadar düzenli ve özenli çalışmaları benim için çok değerliydi." },
+  { copy: "Ödemeyi iş bitince yapmak içimi rahatlattı." },
+  { copy: "Yatağın yüzeyindeki izler büyük ölçüde açıldı, sonuçtan çok memnun kaldım." },
+  { copy: "Sandalyelerin oturma yerleri yeniden aynı renge kavuştu." },
+  { copy: "Ekipmanlarını düzenli kullanıp etrafı toparlayarak çalışmaları çok profesyoneldi." },
+]);

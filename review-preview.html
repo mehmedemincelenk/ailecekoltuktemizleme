@@ -70,8 +70,15 @@
 
       .review-preview-controls {
         display: flex;
+        align-items: center;
         gap: 0.75rem;
 }
+
+      .review-preview-count {
+        margin-left: auto;
+        color: var(--ink-muted);
+        font-variant-numeric: tabular-nums;
+      }
 
       .review-preview-controls button {
         min-height: 3rem;
@@ -104,7 +111,7 @@
       <h1>Yorum taslakları</h1>
       <p class="review-preview-note">
         <strong>Bu mesajlar gerçek müşteri yorumu değildir.</strong>
-        Gerçek müşteri mesajıyla eşleştirilmeden ana siteye alınmazlar.
+        Size gerçekten söylenenleri numaralarıyla belirleyin; yalnızca seçtiklerinizi ana siteye taşıyalım.
       </p>
 
       <section aria-labelledby="taslak-baslik">
@@ -113,6 +120,7 @@
         <div class="review-preview-controls">
           <button type="button" data-review-prev aria-label="Önceki yorum taslağı">← Önceki</button>
           <button type="button" data-review-next aria-label="Sonraki yorum taslağı">Sonraki →</button>
+          <output class="review-preview-count" data-review-count aria-live="polite"></output>
         </div>
       </section>
     </main>

@@ -133,11 +133,7 @@
   const heroGallery = document.querySelector("[data-hero-gallery]");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  if (heroGallery && !reducedMotion) {
-    let intervalId;
-    let resumeId;
-
-    const stop = () => window.clearInterval(intervalId);
+  if (heroGallery) {
     const advance = () => {
       const card = heroGallery.querySelector("figure");
       if (!card) return;
@@ -152,22 +148,60 @@
 
       heroGallery.scrollTo({ left: nextPosition, behavior: "smooth" });
     };
-    const start = () => {
-      stop();
-      intervalId = window.setInterval(advance, 4200);
-    };
-    const pauseTemporarily = () => {
-      stop();
-      window.clearTimeout(resumeId);
-      resumeId = window.setTimeout(start, 3000);
+
+    heroGallery.addEventListener("click", advance);
+    heroGallery.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      advance();
+    });
+
+    if (!reducedMotion) {
+      let intervalId;
+      const stop = () => window.clearInterval(intervalId);
+      const start = () => {
+        stop();
+        intervalId = window.setInterval(advance, 4200);
+      };
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) stop();
+        else start();
+      });
+      start();
+    }
+  }
+
+  const reviewsSection = document.querySelector("[data-reviews-section]");
+  const reviewGallery = document.querySelector("[data-review-gallery]");
+  const customerReviews = window.AKL_CUSTOMER_REVIEWS || [];
+
+  if (reviewsSection && reviewGallery && customerReviews.length) {
+    for (const review of customerReviews) {
+      const card = document.createElement("article");
+      card.className = "review-card";
+
+      const quote = document.createElement("blockquote");
+      quote.textContent = `“${review.copy}”`;
+
+      card.append(quote);
+      reviewGallery.append(card);
+    }
+
+    const advanceReviews = () => {
+      const card = reviewGallery.querySelector(".review-card");
+      if (!card) return;
+      const gap = Number.parseFloat(getComputedStyle(reviewGallery).gap) || 0;
+      const maxPosition = reviewGallery.scrollWidth - reviewGallery.clientWidth;
+      const nextPosition = reviewGallery.scrollLeft + card.offsetWidth + gap;
+      reviewGallery.scrollTo({ left: nextPosition >= maxPosition - 2 ? 0 : nextPosition, behavior: nextPosition >= maxPosition - 2 ? "auto" : "smooth" });
     };
 
-    heroGallery.addEventListener("pointerdown", pauseTemporarily, { passive: true });
-    heroGallery.addEventListener("focusin", pauseTemporarily);
-    document.addEventListener("visibilitychange", () => {
-      if (document.hidden) stop();
-      else start();
+    reviewGallery.addEventListener("click", advanceReviews);
+    reviewGallery.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      advanceReviews();
     });
-    start();
+    reviewsSection.hidden = false;
   }
 })();
